@@ -1173,6 +1173,9 @@ export class VirtualScrollerComponent implements OnInit, OnChanges, OnDestroy {
 
 		let viewportLength = this.horizontal ? viewportWidth : viewportHeight;
 		let maxScrollPosition = Math.max(scrollLength - viewportLength, 0);
+		
+		// Added this to address additional space coming up at the bottom after adding >5 messages
+		scrollLength -= 104;
 
 		return {
 			itemCount: itemCount,
